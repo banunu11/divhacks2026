@@ -5,11 +5,13 @@ Predicts the chance of a delay on each NYC subway line over the next 1–6 hours
 ## Repo layout
 
 ```
-ml/            model pipeline (data download, features, training, live prediction)
+ml/            model pipeline (data download, features, training, evaluation, live prediction)
 api/           FastAPI server the app calls
 frontend/      the app UI (see frontend/README.md for the API contract)
+notebooks/     data_analysis.ipynb (explore the data) + evaluate.ipynb (compare models), both with charts
 data/          downloaded + processed data (gitignored, regenerate with fetch_data)
-models/        trained model (gitignored) + metrics.json
+models/        production model + experiments/<name>/ (one folder per model; metrics committed, weights gitignored)
+reports/       saved charts
 ```
 
 ## Setup (one time)
@@ -24,10 +26,27 @@ pip install -r requirements.txt
 ## Build the model
 
 ```bash
-python -m ml.fetch_data     # ~5–10 min, downloads to data/raw/
-python -m ml.train          # trains + prints test metrics, saves models/delay_model.joblib
+python -m ml.fetch_data     # ~2 min, downloads to data/raw/
+python -m ml.evaluate run all   # optional: score every model on held-out data
+python -m ml.train          # trains the production model -> models/delay_model.joblib
 python -m ml.predict        # sanity check: live risk for every line
 ```
+
+## Compare models
+
+Models are defined in `ml/experiments.py`. Each one is trained on data before
+Aug 2025 and tested on everything after, which is data it never saw.
+
+```bash
+python -m ml.evaluate list                # what's in the registry
+python -m ml.evaluate run all             # train + test every model (~1.5 min)
+python -m ml.evaluate compare             # leaderboard
+python -m ml.evaluate show hgb_full       # detailed breakdown
+python -m ml.evaluate replay hgb_full 2026-07-14   # predictions vs reality for one day
+python -m ml.train hgb_full               # promote a model to production (the API uses it)
+```
+
+With charts: open `notebooks/evaluate.ipynb` or `notebooks/data_analysis.ipynb` and select the `.venv` kernel.
 
 ## Run the API
 

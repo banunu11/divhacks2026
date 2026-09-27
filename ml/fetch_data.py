@@ -5,6 +5,7 @@
 
 Sources:
   alerts     MTA Service Alerts (subway, delay-type only)  -> our labels
+  disruptions  the other subway alerts (suspensions, reroutes, ...) -> features
   stations   MTA Subway Stations                           -> station -> route map
   ridership  MTA Subway Hourly Ridership (aggregated server-side to a
              station x day-of-week x hour profile, so we don't pull 120M rows)
@@ -58,6 +59,18 @@ def fetch_alerts() -> None:
     df["date"] = pd.to_datetime(df["date"])
     df.to_parquet(config.RAW_DIR / "alerts.parquet", index=False)
     print(f"alerts: {len(df):,} rows, {df['date'].min()} -> {df['date'].max()}")
+
+
+def fetch_disruptions() -> None:
+    """Every other subway alert: suspensions, skipped stops, reroutes, schedule notices."""
+    df = socrata(config.ALERTS_ID, {
+        "$select": "event_id, update_number, date, status_label, affected, header",
+        "$where": "agency = 'NYCT Subway' AND status_label not like '%delays%'",
+        "$order": "date",
+    })
+    df["date"] = pd.to_datetime(df["date"])
+    df.to_parquet(config.RAW_DIR / "disruptions.parquet", index=False)
+    print(f"disruptions: {len(df):,} rows, {df['date'].min()} -> {df['date'].max()}")
 
 
 def fetch_stations() -> None:
@@ -116,6 +129,7 @@ def fetch_weather(start: str = "2020-04-01", end: str | None = None) -> None:
 
 FETCHERS = {
     "alerts": fetch_alerts,
+    "disruptions": fetch_disruptions,
     "stations": fetch_stations,
     "ridership": fetch_ridership_profile,
     "weather": fetch_weather,

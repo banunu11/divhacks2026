@@ -44,3 +44,13 @@ MAX_HORIZON_HOURS = 6        # how far ahead we forecast
 # only know recent history from MTA's live alert feed (the open-data archive
 # lags ~6 weeks behind).
 LAG_WINDOWS_HOURS = [1, 3, 6, 24]
+
+# Risk buckets shown in the app. ~17% of line-hours have a delay alert, so
+# "high" is roughly 2x the norm.
+RISK_HIGH = 0.35
+RISK_MEDIUM = 0.18
+
+EXPERIMENTS_DIR = MODELS_DIR / "experiments"
+EXPERIMENTS_DIR.mkdir(parents=True, exist_ok=True)
+# Everything from here on is held out for testing experiments.
+TEST_START = "2025-08-01"

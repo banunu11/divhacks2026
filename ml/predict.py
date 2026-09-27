@@ -133,8 +133,7 @@ class DelayPredictor:
 
 
 def risk_bucket(p: float) -> str:
-    # ~17% of line-hours have a delay alert, so "high" means ~2x the norm.
-    return "high" if p >= 0.35 else "medium" if p >= 0.18 else "low"
+    return "high" if p >= config.RISK_HIGH else "medium" if p >= config.RISK_MEDIUM else "low"
 
 
 if __name__ == "__main__":

@@ -1,0 +1,302 @@
+{
+  "name": "hgb_calendar",
+  "description": "Gradient boosting on line + calendar only (no weather, no recent delays)",
+  "features": [
+    "line",
+    "hour",
+    "dow",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "is_rush"
+  ],
+  "trained_at": "2026-09-26T23:44:08",
+  "train_period": [
+    "2021-01-03 00:00:00",
+    "2025-07-31 23:00:00"
+  ],
+  "test_period": [
+    "2025-08-01 00:00:00",
+    "2026-08-11 23:00:00"
+  ],
+  "overall": {
+    "n": 1191168,
+    "delay_rate": 0.1878,
+    "roc_auc": 0.7143,
+    "pr_auc": 0.3265,
+    "brier": 0.1404,
+    "brier_skill": 0.0796,
+    "log_loss": 0.435,
+    "high_precision": 0.4134,
+    "high_recall": 0.0604,
+    "high_flagged_pct": 0.0275
+  },
+  "by_horizon": {
+    "1": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7143,
+      "pr_auc": 0.3265,
+      "brier": 0.1404,
+      "brier_skill": 0.0796,
+      "log_loss": 0.435,
+      "high_precision": 0.4134,
+      "high_recall": 0.0604,
+      "high_flagged_pct": 0.0275
+    },
+    "2": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7143,
+      "pr_auc": 0.3265,
+      "brier": 0.1404,
+      "brier_skill": 0.0796,
+      "log_loss": 0.435,
+      "high_precision": 0.4134,
+      "high_recall": 0.0604,
+      "high_flagged_pct": 0.0275
+    },
+    "3": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7143,
+      "pr_auc": 0.3265,
+      "brier": 0.1404,
+      "brier_skill": 0.0796,
+      "log_loss": 0.435,
+      "high_precision": 0.4134,
+      "high_recall": 0.0604,
+      "high_flagged_pct": 0.0275
+    },
+    "4": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7143,
+      "pr_auc": 0.3265,
+      "brier": 0.1404,
+      "brier_skill": 0.0796,
+      "log_loss": 0.435,
+      "high_precision": 0.4134,
+      "high_recall": 0.0604,
+      "high_flagged_pct": 0.0275
+    },
+    "5": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7143,
+      "pr_auc": 0.3265,
+      "brier": 0.1404,
+      "brier_skill": 0.0796,
+      "log_loss": 0.435,
+      "high_precision": 0.4134,
+      "high_recall": 0.0604,
+      "high_flagged_pct": 0.0275
+    },
+    "6": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7143,
+      "pr_auc": 0.3265,
+      "brier": 0.1404,
+      "brier_skill": 0.0796,
+      "log_loss": 0.435,
+      "high_precision": 0.4134,
+      "high_recall": 0.0604,
+      "high_flagged_pct": 0.0275
+    }
+  },
+  "by_segment": {
+    "time_of_day": {
+      "off_peak": {
+        "n": 780384,
+        "delay_rate": 0.1986,
+        "roc_auc": 0.7127,
+        "pr_auc": 0.3392,
+        "brier": 0.1462,
+        "brier_skill": 0.0817,
+        "log_loss": 0.4492,
+        "high_precision": 0.4148,
+        "high_recall": 0.0847,
+        "high_flagged_pct": 0.0406
+      },
+      "overnight": {
+        "n": 198528,
+        "delay_rate": 0.1563,
+        "roc_auc": 0.7057,
+        "pr_auc": 0.2725,
+        "brier": 0.1234,
+        "brier_skill": 0.0641,
+        "log_loss": 0.3945,
+        "high_precision": 0.3333,
+        "high_recall": 0.0031,
+        "high_flagged_pct": 0.0015
+      },
+      "rush": {
+        "n": 212256,
+        "delay_rate": 0.1776,
+        "roc_auc": 0.7149,
+        "pr_auc": 0.3041,
+        "brier": 0.1351,
+        "brier_skill": 0.0748,
+        "log_loss": 0.4206,
+        "high_precision": 0.3828,
+        "high_recall": 0.0078,
+        "high_flagged_pct": 0.0036
+      }
+    },
+    "day_type": {
+      "weekday": {
+        "n": 814176,
+        "delay_rate": 0.2107,
+        "roc_auc": 0.7009,
+        "pr_auc": 0.343,
+        "brier": 0.1539,
+        "brier_skill": 0.0746,
+        "log_loss": 0.4692,
+        "high_precision": 0.4166,
+        "high_recall": 0.0768,
+        "high_flagged_pct": 0.0389
+      },
+      "weekend/holiday": {
+        "n": 376992,
+        "delay_rate": 0.1384,
+        "roc_auc": 0.7173,
+        "pr_auc": 0.2523,
+        "brier": 0.1113,
+        "brier_skill": 0.0669,
+        "log_loss": 0.3612,
+        "high_precision": 0.3184,
+        "high_recall": 0.0066,
+        "high_flagged_pct": 0.0028
+      }
+    },
+    "weather": {
+      "heat": {
+        "n": 39732,
+        "delay_rate": 0.2114,
+        "roc_auc": 0.6658,
+        "pr_auc": 0.3161,
+        "brier": 0.1579,
+        "brier_skill": 0.0528,
+        "log_loss": 0.4829,
+        "high_precision": 0.3775,
+        "high_recall": 0.0407,
+        "high_flagged_pct": 0.0228
+      },
+      "normal": {
+        "n": 1001352,
+        "delay_rate": 0.1846,
+        "roc_auc": 0.7176,
+        "pr_auc": 0.3258,
+        "brier": 0.1383,
+        "brier_skill": 0.0817,
+        "log_loss": 0.4293,
+        "high_precision": 0.4155,
+        "high_recall": 0.0619,
+        "high_flagged_pct": 0.0275
+      },
+      "rain": {
+        "n": 91080,
+        "delay_rate": 0.2101,
+        "roc_auc": 0.7086,
+        "pr_auc": 0.3539,
+        "brier": 0.1539,
+        "brier_skill": 0.0727,
+        "log_loss": 0.469,
+        "high_precision": 0.4621,
+        "high_recall": 0.0593,
+        "high_flagged_pct": 0.0269
+      },
+      "snow": {
+        "n": 59004,
+        "delay_rate": 0.1916,
+        "roc_auc": 0.7004,
+        "pr_auc": 0.3112,
+        "brier": 0.1444,
+        "brier_skill": 0.0676,
+        "log_loss": 0.4473,
+        "high_precision": 0.3322,
+        "high_recall": 0.0525,
+        "high_flagged_pct": 0.0303
+      }
+    },
+    "line_recent_delay": {
+      "delayed in last 3h": {
+        "n": 455979,
+        "delay_rate": 0.2585,
+        "roc_auc": 0.6548,
+        "pr_auc": 0.3676,
+        "brier": 0.1843,
+        "brier_skill": 0.0385,
+        "log_loss": 0.5489,
+        "high_precision": 0.4425,
+        "high_recall": 0.0748,
+        "high_flagged_pct": 0.0437
+      },
+      "quiet last 3h": {
+        "n": 735189,
+        "delay_rate": 0.144,
+        "roc_auc": 0.7332,
+        "pr_auc": 0.2788,
+        "brier": 0.1132,
+        "brier_skill": 0.0817,
+        "log_loss": 0.3643,
+        "high_precision": 0.3679,
+        "high_recall": 0.0445,
+        "high_flagged_pct": 0.0174
+      }
+    }
+  },
+  "calibration": [
+    {
+      "n": 119154,
+      "predicted": 0.0043,
+      "actual": 0.0025
+    },
+    {
+      "n": 119082,
+      "predicted": 0.0418,
+      "actual": 0.0503
+    },
+    {
+      "n": 119118,
+      "predicted": 0.0836,
+      "actual": 0.097
+    },
+    {
+      "n": 119130,
+      "predicted": 0.1203,
+      "actual": 0.1404
+    },
+    {
+      "n": 119100,
+      "predicted": 0.1537,
+      "actual": 0.1753
+    },
+    {
+      "n": 119118,
+      "predicted": 0.1812,
+      "actual": 0.2061
+    },
+    {
+      "n": 119118,
+      "predicted": 0.2062,
+      "actual": 0.2347
+    },
+    {
+      "n": 119118,
+      "predicted": 0.2355,
+      "actual": 0.2723
+    },
+    {
+      "n": 119124,
+      "predicted": 0.2737,
+      "actual": 0.3195
+    },
+    {
+      "n": 119106,
+      "predicted": 0.3351,
+      "actual": 0.3803
+    }
+  ]
+}

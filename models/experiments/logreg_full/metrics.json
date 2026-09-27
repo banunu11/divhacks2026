@@ -1,0 +1,319 @@
+{
+  "name": "logreg_full",
+  "description": "Logistic regression on all features",
+  "features": [
+    "line",
+    "horizon",
+    "hour",
+    "dow",
+    "month",
+    "is_weekend",
+    "is_holiday",
+    "is_rush",
+    "temperature_2m",
+    "precipitation",
+    "snowfall",
+    "wind_speed_10m",
+    "precip_3h",
+    "snow_24h",
+    "line_riders",
+    "line_delays_1h",
+    "line_delays_3h",
+    "line_delays_6h",
+    "line_delays_24h",
+    "sys_delays_1h",
+    "sys_delays_3h",
+    "sys_delays_6h",
+    "sys_delays_24h",
+    "hours_since_line_delay"
+  ],
+  "trained_at": "2026-09-26T23:45:03",
+  "train_period": [
+    "2021-01-03 00:00:00",
+    "2025-07-31 23:00:00"
+  ],
+  "test_period": [
+    "2025-08-01 00:00:00",
+    "2026-08-11 23:00:00"
+  ],
+  "overall": {
+    "n": 1191168,
+    "delay_rate": 0.1878,
+    "roc_auc": 0.704,
+    "pr_auc": 0.3299,
+    "brier": 0.1409,
+    "brier_skill": 0.0765,
+    "log_loss": 0.4413,
+    "high_precision": 0.4077,
+    "high_recall": 0.1527,
+    "high_flagged_pct": 0.0703
+  },
+  "by_horizon": {
+    "1": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7291,
+      "pr_auc": 0.3678,
+      "brier": 0.1374,
+      "brier_skill": 0.0992,
+      "log_loss": 0.4309,
+      "high_precision": 0.4626,
+      "high_recall": 0.1876,
+      "high_flagged_pct": 0.0762
+    },
+    "2": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7087,
+      "pr_auc": 0.3349,
+      "brier": 0.1403,
+      "brier_skill": 0.08,
+      "log_loss": 0.4396,
+      "high_precision": 0.4098,
+      "high_recall": 0.1612,
+      "high_flagged_pct": 0.0739
+    },
+    "3": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.7013,
+      "pr_auc": 0.3255,
+      "brier": 0.1413,
+      "brier_skill": 0.0739,
+      "log_loss": 0.4425,
+      "high_precision": 0.3963,
+      "high_recall": 0.1489,
+      "high_flagged_pct": 0.0706
+    },
+    "4": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.6971,
+      "pr_auc": 0.32,
+      "brier": 0.1418,
+      "brier_skill": 0.0704,
+      "log_loss": 0.4441,
+      "high_precision": 0.3942,
+      "high_recall": 0.1438,
+      "high_flagged_pct": 0.0685
+    },
+    "5": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.6948,
+      "pr_auc": 0.317,
+      "brier": 0.1421,
+      "brier_skill": 0.0685,
+      "log_loss": 0.4451,
+      "high_precision": 0.3894,
+      "high_recall": 0.1389,
+      "high_flagged_pct": 0.067
+    },
+    "6": {
+      "n": 198528,
+      "delay_rate": 0.1878,
+      "roc_auc": 0.6927,
+      "pr_auc": 0.3147,
+      "brier": 0.1423,
+      "brier_skill": 0.0669,
+      "log_loss": 0.4459,
+      "high_precision": 0.3868,
+      "high_recall": 0.1355,
+      "high_flagged_pct": 0.0658
+    }
+  },
+  "by_segment": {
+    "time_of_day": {
+      "off_peak": {
+        "n": 780384,
+        "delay_rate": 0.1986,
+        "roc_auc": 0.705,
+        "pr_auc": 0.3445,
+        "brier": 0.1464,
+        "brier_skill": 0.0802,
+        "log_loss": 0.4545,
+        "high_precision": 0.4113,
+        "high_recall": 0.185,
+        "high_flagged_pct": 0.0893
+      },
+      "overnight": {
+        "n": 198528,
+        "delay_rate": 0.1563,
+        "roc_auc": 0.6869,
+        "pr_auc": 0.2733,
+        "brier": 0.1242,
+        "brier_skill": 0.0579,
+        "log_loss": 0.4024,
+        "high_precision": 0.3867,
+        "high_recall": 0.0581,
+        "high_flagged_pct": 0.0235
+      },
+      "rush": {
+        "n": 212256,
+        "delay_rate": 0.1776,
+        "roc_auc": 0.7021,
+        "pr_auc": 0.3062,
+        "brier": 0.1361,
+        "brier_skill": 0.0682,
+        "log_loss": 0.4291,
+        "high_precision": 0.3914,
+        "high_recall": 0.0975,
+        "high_flagged_pct": 0.0442
+      }
+    },
+    "day_type": {
+      "weekday": {
+        "n": 814176,
+        "delay_rate": 0.2107,
+        "roc_auc": 0.6915,
+        "pr_auc": 0.3471,
+        "brier": 0.1543,
+        "brier_skill": 0.0725,
+        "log_loss": 0.4746,
+        "high_precision": 0.4084,
+        "high_recall": 0.1897,
+        "high_flagged_pct": 0.0979
+      },
+      "weekend/holiday": {
+        "n": 376992,
+        "delay_rate": 0.1384,
+        "roc_auc": 0.7028,
+        "pr_auc": 0.2565,
+        "brier": 0.112,
+        "brier_skill": 0.0608,
+        "log_loss": 0.3695,
+        "high_precision": 0.3951,
+        "high_recall": 0.0308,
+        "high_flagged_pct": 0.0108
+      }
+    },
+    "weather": {
+      "heat": {
+        "n": 39732,
+        "delay_rate": 0.2114,
+        "roc_auc": 0.6718,
+        "pr_auc": 0.3334,
+        "brier": 0.1567,
+        "brier_skill": 0.06,
+        "log_loss": 0.4824,
+        "high_precision": 0.4074,
+        "high_recall": 0.1608,
+        "high_flagged_pct": 0.0835
+      },
+      "normal": {
+        "n": 1001352,
+        "delay_rate": 0.1846,
+        "roc_auc": 0.7054,
+        "pr_auc": 0.3275,
+        "brier": 0.139,
+        "brier_skill": 0.0769,
+        "log_loss": 0.4366,
+        "high_precision": 0.4066,
+        "high_recall": 0.15,
+        "high_flagged_pct": 0.0681
+      },
+      "rain": {
+        "n": 91080,
+        "delay_rate": 0.2101,
+        "roc_auc": 0.6978,
+        "pr_auc": 0.3491,
+        "brier": 0.1536,
+        "brier_skill": 0.0743,
+        "log_loss": 0.4724,
+        "high_precision": 0.4121,
+        "high_recall": 0.1731,
+        "high_flagged_pct": 0.0883
+      },
+      "snow": {
+        "n": 59004,
+        "delay_rate": 0.1916,
+        "roc_auc": 0.7042,
+        "pr_auc": 0.3346,
+        "brier": 0.1429,
+        "brier_skill": 0.0771,
+        "log_loss": 0.4457,
+        "high_precision": 0.4174,
+        "high_recall": 0.1556,
+        "high_flagged_pct": 0.0714
+      }
+    },
+    "line_recent_delay": {
+      "delayed in last 3h": {
+        "n": 455979,
+        "delay_rate": 0.2585,
+        "roc_auc": 0.6447,
+        "pr_auc": 0.369,
+        "brier": 0.1827,
+        "brier_skill": 0.0471,
+        "log_loss": 0.5469,
+        "high_precision": 0.4101,
+        "high_recall": 0.2494,
+        "high_flagged_pct": 0.1572
+      },
+      "quiet last 3h": {
+        "n": 735189,
+        "delay_rate": 0.144,
+        "roc_auc": 0.7109,
+        "pr_auc": 0.2701,
+        "brier": 0.115,
+        "brier_skill": 0.0673,
+        "log_loss": 0.3759,
+        "high_precision": 0.3938,
+        "high_recall": 0.045,
+        "high_flagged_pct": 0.0165
+      }
+    }
+  },
+  "calibration": [
+    {
+      "n": 119117,
+      "predicted": 0.0263,
+      "actual": 0.0241
+    },
+    {
+      "n": 119117,
+      "predicted": 0.0716,
+      "actual": 0.0662
+    },
+    {
+      "n": 119117,
+      "predicted": 0.0977,
+      "actual": 0.0953
+    },
+    {
+      "n": 119116,
+      "predicted": 0.1226,
+      "actual": 0.1343
+    },
+    {
+      "n": 119117,
+      "predicted": 0.1479,
+      "actual": 0.1657
+    },
+    {
+      "n": 119117,
+      "predicted": 0.1754,
+      "actual": 0.1992
+    },
+    {
+      "n": 119116,
+      "predicted": 0.2066,
+      "actual": 0.2312
+    },
+    {
+      "n": 119117,
+      "predicted": 0.2436,
+      "actual": 0.2669
+    },
+    {
+      "n": 119117,
+      "predicted": 0.2922,
+      "actual": 0.3067
+    },
+    {
+      "n": 119117,
+      "predicted": 0.3877,
+      "actual": 0.3886
+    }
+  ]
+}

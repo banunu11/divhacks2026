@@ -1,0 +1,13 @@
+,,model,baseline: by cause,baseline: ends 20 min after last update
+all ongoing delays,median error (min),0.0,15.0,0.0
+all ongoing delays,within 10 min,0.6771053778165069,0.4788684177766712,0.5906961907133076
+all ongoing delays,middle 50%: contains actual,0.819517926055023,0.6611322046557948,0.525675339225694
+all ongoing delays,middle 50%: avg width (min),18.695537159218226,33.61504886094859,0.0
+all ongoing delays,middle 80%: contains actual,0.9546480144404332,0.9808991036972489,0.525675339225694
+all ongoing delays,middle 80%: avg width (min),35.943179696252955,58.39902589319059,0.0
+delays that got another update and ran longer,median error (min),15.0,25.0,40.0
+delays that got another update and ran longer,within 10 min,0.45065940555081685,0.2786234499048619,0.13708090020339872
+delays that got another update and ran longer,middle 50%: contains actual,0.6943442031362771,0.635342169149006,0.0
+delays that got another update and ran longer,middle 50%: avg width (min),28.730890361524835,35.94719834656519,0.0
+delays that got another update and ran longer,middle 80%: contains actual,0.9144905189948166,0.9778885899875336,0.0
+delays that got another update and ran longer,middle 80%: avg width (min),45.26450036086871,58.40725674168362,0.0
